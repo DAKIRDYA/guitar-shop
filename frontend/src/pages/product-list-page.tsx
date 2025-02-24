@@ -1,5 +1,5 @@
 
-import { AppRoute, PageTitles, SortDirection, SortVariants } from "../common/constants/const";
+import { AppRoute, PageTitles, SortDirection, SortVariants, SuccessMessage } from "../common/constants/const";
 import SocialIcons from "../components/social-icons";
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -20,6 +20,7 @@ import { ProductPreviewType } from "../common/types/product-preview-type";
 import Error404Page from "./error-404-page";
 import { useActionCreators } from "../store/hooks/useActionCreators";
 import { userActions } from "../store/slices/user/user-slice";
+import { toast } from "react-toastify";
 
 
 
@@ -106,6 +107,7 @@ export default function ProductListPage():JSX.Element {
   //Удаляет продукт
   const handleDeleteProductClick = (product : ProductPreviewType) => {
     dispatch(productsActions.deleteProduct(product.id));
+    toast.success(SuccessMessage.SuccessDeleteProduct);
   };
 
   return (

@@ -76,22 +76,33 @@ export const MIN_PRICE = 100;
 export const MAX_PRICE = 1000000;
 
 
-export const textError = {
-  textErrorValidationForm: 'Email или пароль некорректны (пароль должен состоять как минимум из 1 буквы and  1 цифры)',
-  textSuccessAuthorization: 'Вы успешно авторизованы',
-  textFailedAuthorization: 'Ошибка авторизации',
+export const TextError = {
+  ValidationLoginPassForm: 'Email или пароль некорректны (пароль должен состоять как минимум из 1 буквы and  1 цифры)',
 
-  textErrorValidationProductName: 'Неверная длина наименования товара. Длина должна быть от ' + MIN_NAME_LENGTH + ' до ' + MAX_NAME_LENGTH,
-  textErrorValidationProductPrice: 'Неверная цена товара. Длина должна быть от ' + MIN_PRICE + ' до ' + MAX_PRICE,
-  textErrorValidationProductArticle: 'Неверная длина артикула товара. Длина должна быть от ' + MIN_ARTICLE_LENGTH + ' до ' + MAX_ARTICLE_LENGTH,
-  textErrorValidationProductDescription: 'Неверная длина описания товара. Длина должна быть от ' + MIN_DESCRIPTION_LENGTH + ' до ' + MAX_DESCRIPTION_LENGTH,
-  textErrorValidationEmail: 'Неверный email',
-  textErrorValidationTypeGuitar: 'Выберите тип гитары',
-  textErrorValidayionGuitarStringCount: 'Выберите количество струн гитары',
-  textErrorValidationDate: "Дата должна быть в формате DD.MM.YYYY, также проверьте значения",
-  textErrorValidationUserName: 'Неверный длина имени пользователя. Длина должна быть от ' + MIN_USER_NAME_LENGTH + ' до ' + MAX_USER_NAME_LENGTH,
+  FailedAuthorization: 'Ошибка авторизации',
+
+  ValidationProductName: 'Неверная длина наименования товара. Длина должна быть от ' + MIN_NAME_LENGTH + ' до ' + MAX_NAME_LENGTH,
+  ValidationProductPrice: 'Неверная цена товара. Длина должна быть от ' + MIN_PRICE + ' до ' + MAX_PRICE,
+  ValidationProductArticle: 'Неверная длина артикула товара. Длина должна быть от ' + MIN_ARTICLE_LENGTH + ' до ' + MAX_ARTICLE_LENGTH,
+  ValidationProductDescription: 'Неверная длина описания товара. Длина должна быть от ' + MIN_DESCRIPTION_LENGTH + ' до ' + MAX_DESCRIPTION_LENGTH,
+  ValidationEmail: 'Неверный email',
+  ValidationTypeGuitar: 'Выберите тип гитары',
+  ValidayionGuitarStringCount: 'Выберите количество струн гитары',
+  ValidationDate: "Дата должна быть в формате DD.MM.YYYY, также проверьте значения",
+  ValidationUserName: 'Неверный длина имени пользователя. Длина должна быть от ' + MIN_USER_NAME_LENGTH + ' до ' + MAX_USER_NAME_LENGTH,
 };
 
+export const SuccessMessage =
+{
+  SuccessRegistration: 'Вы успешно зарегистрированы',
+  SuccessAddProduct: 'Вы успешно добавили товар',
+  SuccessEditProduct: 'Вы успешно отредактировали товар',
+  SuccessDeleteProduct: 'Вы успешно удалили товар',
+  SuccessLogout: 'Вы успешно вышли из аккаунта',
+  SuccessAuthorization: 'Вы успешно авторизованы',
+  SuccessDeleteUser: 'Вы успешно удалили пользователя',
+  SuccessEditUser: 'Вы успешно отредактировали пользователя',
+}
 
 export const REGULAR_NAME = /\w{1,15}$/i;
 export const REGULAR_MAIL = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;

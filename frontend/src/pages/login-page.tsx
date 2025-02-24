@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { AppRoute, PageTitles, REGULAR_MAIL, REGULAR_PASS, textError } from "../common/constants/const";
+import { AppRoute, PageTitles, REGULAR_MAIL, REGULAR_PASS, TextError } from "../common/constants/const";
 import SocialIcons from "../components/social-icons";
 import AuthHeader from "../components/auth-header";
 import Footer from "../components/footer";
@@ -46,7 +46,7 @@ const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (isFormCorrect === false) {
-      return toast.error(textError.textErrorValidationForm);
+      return toast.error(TextError.ValidationEmail);
     }
 //    login(formData); - запрос к серверу для авторизации,
 

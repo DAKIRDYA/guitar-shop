@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AuthorizationStatus, textError, TOKEN } from "../../../common/constants/const";
+import { AuthorizationStatus, TextError, TOKEN } from "../../../common/constants/const";
 import { UserState } from "../../types";
 import { USER_SLICE_NAME } from "../slice-names";
 import { LoginData, User } from "../../../common/types/user-type";
@@ -31,7 +31,7 @@ export const userSlice = createSlice({
       })
       console.log('Авторизация : ', state.status);
       if (state.status !== AuthorizationStatus.Auth) {
-        toast.error(textError.textFailedAuthorization);
+        toast.error(TextError.FailedAuthorization);
       }
     },
     unAuthorize(state) {

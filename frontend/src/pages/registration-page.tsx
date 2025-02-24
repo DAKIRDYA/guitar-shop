@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AppRoute, PageTitles, REGULAR_MAIL, REGULAR_PASS, textError } from "../common/constants/const";
+import { AppRoute, PageTitles, REGULAR_MAIL, REGULAR_PASS, TextError } from "../common/constants/const";
 import AuthHeader from "../components/auth-header";
 import Footer from "../components/footer";
 import SocialIcons from "../components/social-icons";
@@ -44,7 +44,7 @@ function RegistrationPage(): JSX.Element {
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       if (isFormCorrect === false) {
-        return toast.error(textError.textErrorValidationForm);
+        return toast.error(TextError.ValidationLoginPassForm);
       }
       const errors = validateUserName(formData);
       if (errors.length > 0) {

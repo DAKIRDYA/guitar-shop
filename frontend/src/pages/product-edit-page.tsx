@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { AppRoute, PageTitles } from "../common/constants/const";
+import { AppRoute, PageTitles, SuccessMessage } from "../common/constants/const";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import SocialIcons from "../components/social-icons";
@@ -86,12 +86,11 @@ const handleStringCountChanged =(evt: { target: { name: string; value: string } 
   setProductData({...editProduct, guitarStringCount: parseInt(value)});
 }
 
-const handleFormSubmit = (event: React.FormEvent) => {
-  event.preventDefault();
+const handleFormSubmit = () => {
   const errors = validateInput(editProduct,newDate);
   if (errors.length === 0) {
     dispatch(productsActions.updateProducts(editProduct));
-    toast.success("Товар успешно изменен");
+    toast.success(SuccessMessage.SuccessEditProduct);
   } else {
     errors.forEach((error) => {
       toast.error(error);
@@ -212,7 +211,7 @@ const handleFormSubmit = (event: React.FormEvent) => {
                         </div>
                         <div className="custom-input edit-item__form-input edit-item__form-input--price">
                           <label><span>Цена товара</span>
-                            <input type="text" name="price" value={editProduct.price}
+                            <input type="number" name="price" value={editProduct.price}
                               onChange={handleTextChange}
                             ></input>
                           </label>
@@ -237,9 +236,11 @@ const handleFormSubmit = (event: React.FormEvent) => {
                         </div>
                       </div>
                       <div className="edit-item__form-buttons-wrap">
+                      <Link to={`${AppRoute.Root}${currentListPage}`}>
                         <button className="button button--small edit-item__form-button" type="submit"
                           onClick={handleFormSubmit}
                         >Сохранить изменения</button>
+                        </Link>
                         <Link to={`${AppRoute.Root}${currentListPage}`}>
                           <button className="button button--small edit-item__form-button" type="button">Вернуться к списку товаров</button>
                         </Link>

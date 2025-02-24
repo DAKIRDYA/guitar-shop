@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { AppRoute, PageTitles } from "../common/constants/const";
+import { AppRoute, PageTitles, SuccessMessage } from "../common/constants/const";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import SocialIcons from "../components/social-icons";
@@ -85,7 +85,7 @@ function ProductAddPage() {
     if (errors.length === 0) {
       setProductData({...newProduct, createdDate: new Date(newDate)});
       dispatch(productsActions.addProduct(newProduct));
-      toast.success("Товар успешно добавлен");
+      toast.success(SuccessMessage.SuccessAddProduct);
     } else {
       errors.forEach((error) => {
         toast.error(error);
@@ -201,7 +201,7 @@ function ProductAddPage() {
                         </div>
                         <div className="custom-input add-item__form-input add-item__form-input--price is-placeholder">
                           <label><span>Введите цену товара</span>
-                            <input type="text" name="price" value={newProduct.price} placeholder="Цена в формате 00 000"
+                            <input type="number" name="price" value={newProduct.price} placeholder="Цена в формате 00 000"
                             onChange={handleTextChange}
                             ></input>
                           </label>
