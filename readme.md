@@ -16,14 +16,50 @@
 
 В директории размещается исходный код проекта: компоненты, файлы с тестами, модули и так далее. Структура директории `src` может быть произвольной.
 
+
 ## Алгоритм работы над фронтендом
 
 1. Перейдите в диретокрию `frontend`.
 
 2. Установите зависимости, выполнив команду `npm install`.
 
+### Не получилось разрешить конфликт зависимостей!!!!!!!!!!! 
+###  Установка через npm install --legacy-peer-deps
+
 3. Проверьте работу приложения, выполнив команду `npm start`.
 
 4. Перейдите по адресу, указанному в терминале (скорее всего, это будет `http://localhost:5173/`). Если сборка прошла успешно, то на странице вашего приложения вы увидите `Hello, world!`.
 
 5. Запрограммируйте фронтенд.
+
+
+
+
+
+
+###### БЭКЕНД НЕ ДОДЕЛАН!!!!!!!! НЕ РАБОТАЕТ!!!!!
+
+## Создана только схема Prisma
+### guitar-shop\libs\models\prisma\schema.prisma
+
+
+Директория для бэкенда
+#### guitar-shop
+
+
+Сервис обеспечивающий бэкенд 
+#### Apps guitar-shop 
+
+
+
+
+#### docker compose --file ./apps/guitar-shop/docker-compose.dev.yml --env-file ./apps/guitar-shop/.env --project-name "guitar-shop" up -d
+
+
+Подготовка схемы БД
+### npx prisma migrate dev --name "Models for Guitar-shop" --schema ./prisma/schema.prisma --skip-generate
+
+
+Для наполнения используем команду - не сделано
+### npx nx run guitar-shop:db:seed
+

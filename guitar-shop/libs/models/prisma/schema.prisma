@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output = "../../../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://admin:test@localhost:5432/guitar-shop"
+  //env("DATABASE_URL")
+}
+
+
+enum GuitarType {
+ acoustic
+ electric
+ ukulele
+}
+
+
+enum StringCountType {
+  four
+  six
+  seven
+  twelve
+}
+
+
+
+model Product {
+  id          String   @id @default(uuid()) @map("id")
+  name        String
+  description String
+  createdAt   DateTime @default(now()) @map("created_at")
+  foto        String? @default("")//Публикация типа видео -- путь к файлу с фото
+  type        GuitarType @map("guitar_type")
+  article     String
+  stringCount StringCountType @map("string_count_type")
+  price Int
+
+  @@index([name])
+  @@map("products")
+}
+
+
+
+model User {
+  id          String   @id @default(uuid())
+  createdAt   DateTime  @default(now()) @map("created_at")
+  name       String
+  email       String
+  passwordHash String
+  @@map("users")
+}
+
+model Session {
+  id          String   @id @default(uuid())
+  createdAt   DateTime  @default(now()) @map("created_at")
+  tokenId     String @map("token_id")
+  userId      String @map("user_id")
+  expiresIn   DateTime
+  updatedAt   DateTime  @map("updated_at")
+  @@map("sessions")
+}
